@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Projecte Sudoku</string>
+    <string name="title">SUDOKU</string>
+    <string name="btJugar">JUGAR</string>
+    <string name="btDif1">FACIL</string>
+    <string name="btDif2">MITJA</string>
+    <string name="btDif3">DIFICIL</string>
+
+
+</resources>

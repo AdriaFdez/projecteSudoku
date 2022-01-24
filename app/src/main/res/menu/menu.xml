@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="edu.fje.dam2.M04_Menu">
+    <item
+        android:id="@+id/sudoku"
+        android:orderInCategory="100"
+        android:title="Com es juga?"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/app"
+        android:orderInCategory="100"
+        android:title="L'aplicació"
+        app:showAsAction="never" />
+</menu>
