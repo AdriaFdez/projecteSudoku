@@ -43,17 +43,17 @@ public class Benvinguda extends AppCompatActivity {
     }
 
     public void onClickJugar(View view){
-        if(String.valueOf(view.getId()).equals("2131296355")){
+        if(view.getId() == R.id.btDif1){
             dif.setText("Dificultat seleccionada\n FACIL");
             slDif = 1;
 
         }
-        if(String.valueOf(view.getId()).equals("2131296356")){
+        if(view.getId() == R.id.btDif2){
             dif.setText("Dificultat seleccionada\n MITJA");
             slDif = 2;
 
         }
-        if(String.valueOf(view.getId()).equals("2131296357")){
+        if(view.getId() == R.id.btDif3){
             dif.setText("Dificultat seleccionada\n DIFICIL");
             slDif = 3;
 

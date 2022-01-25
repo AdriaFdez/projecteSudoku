@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -49,7 +53,8 @@ public class Sudoku extends AppCompatActivity {
     private List<String> sudokus = Arrays.asList("sudoku1", "sudoku2", "sudoku3");
     private String[] numerosSudoku;
     private String[] numerosPartida;
-    private List<Integer> posicionsIncorrecte;
+    private ArrayList<Integer> posicionsIncorrecte;
+    private EditText a1,a2,a3,a4,a5,a6,a7,a8,a9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,6 @@ public class Sudoku extends AppCompatActivity {
 
         Intent intent = getIntent();
         int diffSelector = intent.getIntExtra("dificultat",0);
-        generarSudoku(diffSelector);
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_CALENDAR)
@@ -95,6 +99,63 @@ public class Sudoku extends AppCompatActivity {
         }
 
         setContentView(R.layout.sudoku);
+        generarSudoku(diffSelector);
+
+        a1 = (EditText) findViewById(R.id.a1);
+        if(!numerosPartida[0].equals("0")) {
+            a1.setText(numerosPartida[0]);
+            a1.setEnabled(false);
+        }
+
+        a2 = (EditText) findViewById(R.id.a2);
+        if(!numerosPartida[1].equals("0")) {
+            a2.setText(numerosPartida[1]);
+            a2.setEnabled(false);
+        }
+
+        a3 = (EditText) findViewById(R.id.a3);
+        if(!numerosPartida[2].equals("0")) {
+            a3.setText(numerosPartida[2]);
+            a3.setEnabled(false);
+        }
+
+        a4 = (EditText) findViewById(R.id.a4);
+        if(!numerosPartida[3].equals("0")) {
+            a4.setText(numerosPartida[3]);
+            a4.setEnabled(false);
+        }
+
+        a5 = (EditText) findViewById(R.id.a5);
+        if(!numerosPartida[4].equals("0")) {
+            a5.setText(numerosPartida[4]);
+            a5.setEnabled(false);
+        }
+
+        a6 = (EditText) findViewById(R.id.a6);
+        if(!numerosPartida[5].equals("0")) {
+            a6.setText(numerosPartida[5]);
+            a6.setEnabled(false);
+        }
+
+        a7 = (EditText) findViewById(R.id.a7);
+        if(!numerosPartida[6].equals("0")) {
+            a7.setText(numerosPartida[6]);
+            a7.setEnabled(false);
+        }
+
+        a8 = (EditText) findViewById(R.id.a8);
+        if(!numerosPartida[7].equals("0")) {
+            a8.setText(numerosPartida[7]);
+            a8.setEnabled(false);
+        }
+
+        a9 = (EditText) findViewById(R.id.a9);
+        if(!numerosPartida[8].equals("0")) {
+            a9.setText(numerosPartida[8]);
+            a9.setEnabled(false);
+        }
+
+
         contentResolver = getContentResolver();
     }
 
@@ -130,6 +191,8 @@ public class Sudoku extends AppCompatActivity {
     public String[] creaSudoku(String[] sudoku, int contNumerosEliminar){
         Log.i("CREASUDOKU", String.valueOf(contNumerosEliminar));
         List<String> posicionsSudoku = Arrays.asList(sudoku);
+        List<String> copy = new ArrayList<>(posicionsSudoku);
+
         Set<Integer> generated = new LinkedHashSet<Integer>();
 
         while(generated.size() < contNumerosEliminar){
@@ -140,10 +203,10 @@ public class Sudoku extends AppCompatActivity {
         }
 
         for(int pos:generated){
-            posicionsSudoku.set(pos,"0");
+            copy.set(pos,"0");
         }
 
-        String[] partida = posicionsSudoku.toArray(new String[0]);
+        String[] partida = copy.toArray(new String[0]);
         return partida;
     }
 
@@ -151,13 +214,13 @@ public class Sudoku extends AppCompatActivity {
         boolean correcte = true;
 
         for(int i = 0; i<numerosSudoku.length; i++){
-            int numS = Integer.parseInt(numerosSudoku[i]);
-            int numP = Integer.parseInt(numerosPartida[i]);
+            String numS = numerosSudoku[i];
+            String numP = numerosPartida[i];
             Log.i(String.valueOf(numS),String.valueOf(numP));
 
-            if(numS != numP){
+            if(!numS.equals(numP)){
                 correcte = false;
-                posicionsIncorrecte.add(i);
+                //posicionsIncorrecte.add(67);
             }
         }
 
