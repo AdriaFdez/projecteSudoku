@@ -8,6 +8,7 @@
         android:background="@drawable/sudokuborder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:stretchColumns="1">
 
         <TableRow>
@@ -17,7 +18,8 @@
                 android:id="@+id/a1"
                 android:layout_width="0dp"
                 android:layout_weight="0.11"
-                android:inputType="number" />
+                android:inputType="number"
+                />
 
             <EditText
                 android:background="@drawable/cell"
@@ -225,6 +227,444 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.11"
                 android:id="@+id/a27"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a28"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a29"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a30"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a31"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a32"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a33"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a34"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a35"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a36"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a37"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a38"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a39"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a40"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a41"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a42"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a43"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a44"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a45"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a46"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a47"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:id="@+id/a48"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a49"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a50"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a51"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a52"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a53"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a54"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a55"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a56"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a57"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a58"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a59"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a60"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a61"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a62"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a63"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a64"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a65"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a66"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a67"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a68"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a69"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a70"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a71"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a72"
+                />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a73"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a74"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:id="@+id/a75"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:inputType="number" />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a76"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a77"
+                />
+
+            <EditText
+                android:background="@drawable/cell2"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a78"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a79"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a80"
+                />
+
+            <EditText
+                android:background="@drawable/cell"
+                android:inputType = "number"
+                android:layout_width="0dp"
+                android:layout_weight="0.11"
+                android:id="@+id/a81"
                 />
 
         </TableRow>

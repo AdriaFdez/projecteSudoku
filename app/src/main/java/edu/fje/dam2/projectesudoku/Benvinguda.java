@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.GeolocationPermissions;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -80,9 +84,15 @@ public class Benvinguda extends AppCompatActivity {
 
             case R.id.sudoku:
                 Log.i("MENU", "A");
+                Intent intentS = new Intent(this, WebViews.class);
+                intentS.putExtra("page", "file:///android_asset/sudoku.html");
+                startActivity(intentS);
                 return true;
             case R.id.app:
                 Log.i("MENU", "B");
+                Intent intentA = new Intent(this, WebViews.class);
+                intentA.putExtra("page", "file:///android_asset/aplicacio.html");
+                startActivity(intentA);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

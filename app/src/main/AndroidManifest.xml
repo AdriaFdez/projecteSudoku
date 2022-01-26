@@ -21,6 +21,9 @@
         <activity android:name="edu.fje.dam2.projectesudoku.Sudoku">
 
         </activity>
+        <activity android:name="edu.fje.dam2.projectesudoku.WebViews">
+
+        </activity>
     </application>
 
 </manifest>
