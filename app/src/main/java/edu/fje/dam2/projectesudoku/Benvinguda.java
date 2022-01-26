@@ -81,15 +81,17 @@ public class Benvinguda extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
+            case R.id.sudokuWiki:
+                Intent intentW = new Intent(this, WebViews.class);
+                intentW.putExtra("page", "https://ca.wikipedia.org/wiki/Sudoku");
+                startActivity(intentW);
+                return true;
             case R.id.sudoku:
-                Log.i("MENU", "A");
                 Intent intentS = new Intent(this, WebViews.class);
                 intentS.putExtra("page", "file:///android_asset/sudoku.html");
                 startActivity(intentS);
                 return true;
             case R.id.app:
-                Log.i("MENU", "B");
                 Intent intentA = new Intent(this, WebViews.class);
                 intentA.putExtra("page", "file:///android_asset/aplicacio.html");
                 startActivity(intentA);
