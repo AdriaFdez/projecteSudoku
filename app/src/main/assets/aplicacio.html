@@ -1,5 +1,29 @@
 <html>
+    <head>
+        <link href="css/estil.css" media="screen" rel="stylesheet" type="text/css" />
+    </head>
     <body>
-        <p>APLICACIO</p>
+        <div class="divW">
+            <h1>L' APLICACIÓ</h1>
+            <p>Aquesta aplicació consisteix en diferents pantalles, la qual cadascuna té les seves funcionalitats. <br><br> Dins l'aplicació del projecte, trobem que es pot jugar en diferents dificultats, i que de forma aleatòria es poden jugar fins a 3 sudokus diferents.</p>
+        </div>
+
+        <div class="divP">
+            <h2>BENVINGUDA</h2>
+            <p>Aquesta és la pàigna principal de l'aplicació. Hi trobem un menú i diferents botons. <br><br> El menú disposa de 3 opcions, les quals t'envien a 3 ajudes segons la informació que vols. Un t'envia a la wikipèdia de sudoku, i els altres 2 són htmls que t'informen sobre l'aplicació i com es juga al sudoku. <br><br> També trobem diferents botons per a jugar al sudoku. Per defecte, està com a fàcil, però clicant en un dels 3 botons es cambia la dificultat. Al clicar a jugar, s'inicia una partida amb la dificultat definida.</p>
+            <br>
+            <img src="img/difs.jpg">
+            <br>
+        </div>
+
+        <div class="divW">
+            <h2>SUDOKU</h2>
+            <p>L'aplicació conté 3 sudokus diferents, i de forma aleatòria n'escull un. A més, segons la dificultat seleccionada esborra diferent quantitat de números per a resoldre. <br> <br> Clicant als espais buits hi pots afegir els números, i un cop es creu resolt, s'ha de clicar al botó comprobar per validar-ho. Si no és correcte, s'indica això amb un "Toast", i si està correcte t'envia a una nova pantalla amb la puntuació obtinguda.</p>
+        </div>
+
+        <div class="divP">
+            <h2>ALTRES</h2>
+            <p>Quan s'ha comprovat el sudoku i és correcte, la puntuació es desa dins SQLite, i també es guarda dins el calendari la partida. <br><br> A la pantalla d'inici, es mostra el top 5 de puntuacions, les quals queden definides segons la duració i dificultat de la partida.</p>
+        </div>
     </body>
 </html>
