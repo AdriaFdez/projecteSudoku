@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.fje.dam2.M04_Menu">
     <item
-        android:id="@+id/sudokuWiki"
-        android:orderInCategory="100"
-        android:title="Sudoku"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/sudoku"
         android:orderInCategory="100"
-        android:title="Com es juga?"
+        android:title="El sudoku"
         app:showAsAction="never" />
     <item
         android:id="@+id/app"
         android:orderInCategory="100"
         android:title="L'aplicació"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sudokuWiki"
+        android:orderInCategory="100"
+        android:title="Més informació"
         app:showAsAction="never" />
 </menu>
