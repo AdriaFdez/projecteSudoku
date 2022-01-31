@@ -8,11 +8,16 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.CalendarContract;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,18 +55,25 @@ public class Sudoku extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_READ_CALENDARS = 100;
     private static final int PERMISSIONS_REQUEST_WRITE_CALENDARS = 200;
 
+    private int diffSelector;
     private List<String> sudokus = Arrays.asList("sudoku1", "sudoku2", "sudoku3");
     private String[] numerosSudoku;
     private String[] numerosPartida;
     private ArrayList<Integer> posicionsIncorrecte;
     private EditText numSudoku, numText;
+    private Chronometer simpleChronometer;
+    private long tempsMaxim = 1800000;          //30 min en miliseconds
+
+    TableLayout tl1;
+    TableRow tr1;
+    EditText et1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        int diffSelector = intent.getIntExtra("dificultat",0);
+        diffSelector = intent.getIntExtra("dificultat",0);
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_CALENDAR)
@@ -101,6 +113,9 @@ public class Sudoku extends AppCompatActivity {
         setContentView(R.layout.sudoku);
         escullSudoku(diffSelector);
 
+        simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer); // initiate a chronometer
+
+        simpleChronometer.start();
         dibuixarSudoku();
 
 
@@ -174,6 +189,23 @@ public class Sudoku extends AppCompatActivity {
             }
         }
 
+        long temps = SystemClock.elapsedRealtime() - simpleChronometer.getBase();
+        long duracio = temps/1000;
+
+        long tpsSobrant;
+
+        if(temps > tempsMaxim) {    //si trigues mes de 30 min
+            tpsSobrant = 1000;
+        } else {
+            tpsSobrant = tempsMaxim - temps;
+        }
+
+        Intent intentVct = new Intent(this, Victoria.class);
+        intentVct.putExtra("dificultat", diffSelector);
+        intentVct.putExtra("tempsSobrant", tpsSobrant);
+        intentVct.putExtra("duracio", duracio);
+        startActivity(intentVct);
+
         if(correcte) {
             //SQLITE
 
@@ -231,105 +263,83 @@ public class Sudoku extends AppCompatActivity {
         }
     }
 
-    public void dibuixarSudoku(){
+    public void dibuixarSudoku() {
 
-        escriuNum(numSudoku,R.id.a1,numerosPartida[0]);
-        escriuNum(numSudoku,R.id.a2,numerosPartida[1]);
-        escriuNum(numSudoku,R.id.a3,numerosPartida[2]);
-        escriuNum(numSudoku,R.id.a4,numerosPartida[3]);
-        escriuNum(numSudoku,R.id.a5,numerosPartida[4]);
-        escriuNum(numSudoku,R.id.a6,numerosPartida[5]);
-        escriuNum(numSudoku,R.id.a7,numerosPartida[6]);
-        escriuNum(numSudoku,R.id.a8,numerosPartida[7]);
-        escriuNum(numSudoku,R.id.a9,numerosPartida[8]);
+        tl1 = findViewById(R.id.tl1);
 
-        escriuNum(numText,R.id.a10,numerosPartida[9]);
-        escriuNum(numText,R.id.a11,numerosPartida[10]);
-        escriuNum(numText,R.id.a12,numerosPartida[11]);
-        escriuNum(numText,R.id.a13,numerosPartida[12]);
-        escriuNum(numText,R.id.a14,numerosPartida[13]);
-        escriuNum(numText,R.id.a15,numerosPartida[14]);
-        escriuNum(numText,R.id.a16,numerosPartida[15]);
-        escriuNum(numText,R.id.a17,numerosPartida[16]);
-        escriuNum(numText,R.id.a18,numerosPartida[17]);
+        ArrayList<String> arr1 = new ArrayList<String>();
+        arr1.add("03");
+        arr1.add("04");
+        arr1.add("05");
+        arr1.add("13");
+        arr1.add("14");
+        arr1.add("15");
+        arr1.add("23");
+        arr1.add("24");
+        arr1.add("25");
 
-        escriuNum(numText,R.id.a19,numerosPartida[18]);
-        escriuNum(numText,R.id.a20,numerosPartida[19]);
-        escriuNum(numText,R.id.a21,numerosPartida[20]);
-        escriuNum(numText,R.id.a22,numerosPartida[21]);
-        escriuNum(numText,R.id.a23,numerosPartida[22]);
-        escriuNum(numText,R.id.a24,numerosPartida[23]);
-        escriuNum(numText,R.id.a25,numerosPartida[24]);
-        escriuNum(numText,R.id.a26,numerosPartida[25]);
-        escriuNum(numText,R.id.a27,numerosPartida[26]);
+        arr1.add("30");
+        arr1.add("31");
+        arr1.add("32");
+        arr1.add("40");
+        arr1.add("41");
+        arr1.add("42");
+        arr1.add("50");
+        arr1.add("51");
+        arr1.add("52");
 
-        escriuNum(numText,R.id.a28,numerosPartida[27]);
-        escriuNum(numText,R.id.a29,numerosPartida[28]);
-        escriuNum(numText,R.id.a30,numerosPartida[29]);
-        escriuNum(numText,R.id.a31,numerosPartida[30]);
-        escriuNum(numText,R.id.a32,numerosPartida[31]);
-        escriuNum(numText,R.id.a33,numerosPartida[32]);
-        escriuNum(numText,R.id.a34,numerosPartida[33]);
-        escriuNum(numText,R.id.a35,numerosPartida[34]);
-        escriuNum(numText,R.id.a36,numerosPartida[35]);
+        arr1.add("36");
+        arr1.add("37");
+        arr1.add("38");
+        arr1.add("46");
+        arr1.add("47");
+        arr1.add("48");
+        arr1.add("56");
+        arr1.add("57");
+        arr1.add("58");
 
-        escriuNum(numText,R.id.a37,numerosPartida[36]);
-        escriuNum(numText,R.id.a38,numerosPartida[37]);
-        escriuNum(numText,R.id.a39,numerosPartida[38]);
-        escriuNum(numText,R.id.a40,numerosPartida[39]);
-        escriuNum(numText,R.id.a41,numerosPartida[40]);
-        escriuNum(numText,R.id.a42,numerosPartida[41]);
-        escriuNum(numText,R.id.a43,numerosPartida[42]);
-        escriuNum(numText,R.id.a44,numerosPartida[43]);
-        escriuNum(numText,R.id.a45,numerosPartida[44]);
+        arr1.add("63");
+        arr1.add("64");
+        arr1.add("65");
+        arr1.add("73");
+        arr1.add("74");
+        arr1.add("75");
+        arr1.add("83");
+        arr1.add("84");
+        arr1.add("85");
 
-        escriuNum(numSudoku,R.id.a46,numerosPartida[45]);
-        escriuNum(numSudoku,R.id.a47,numerosPartida[46]);
-        escriuNum(numSudoku,R.id.a48,numerosPartida[47]);
-        escriuNum(numSudoku,R.id.a49,numerosPartida[48]);
-        escriuNum(numSudoku,R.id.a50,numerosPartida[49]);
-        escriuNum(numSudoku,R.id.a51,numerosPartida[50]);
-        escriuNum(numSudoku,R.id.a52,numerosPartida[51]);
-        escriuNum(numSudoku,R.id.a53,numerosPartida[52]);
-        escriuNum(numSudoku,R.id.a54,numerosPartida[53]);
-        escriuNum(numSudoku,R.id.a55,numerosPartida[54]);
-        escriuNum(numSudoku,R.id.a56,numerosPartida[55]);
-        escriuNum(numSudoku,R.id.a57,numerosPartida[56]);
-        escriuNum(numSudoku,R.id.a58,numerosPartida[57]);
-        escriuNum(numSudoku,R.id.a59,numerosPartida[58]);
-        escriuNum(numSudoku,R.id.a60,numerosPartida[59]);
-        escriuNum(numSudoku,R.id.a61,numerosPartida[60]);
-        escriuNum(numSudoku,R.id.a62,numerosPartida[61]);
-        escriuNum(numSudoku,R.id.a63,numerosPartida[62]);
-        escriuNum(numSudoku,R.id.a64,numerosPartida[63]);
-        escriuNum(numSudoku,R.id.a65,numerosPartida[64]);
-        escriuNum(numSudoku,R.id.a66,numerosPartida[65]);
-        escriuNum(numSudoku,R.id.a67,numerosPartida[66]);
+        String cellID = "";
 
-        escriuNum(numSudoku,R.id.a68,numerosPartida[67]);
-        escriuNum(numSudoku,R.id.a69,numerosPartida[68]);
-        escriuNum(numSudoku,R.id.a70,numerosPartida[69]);
-        escriuNum(numSudoku,R.id.a71,numerosPartida[70]);
-        escriuNum(numSudoku,R.id.a72,numerosPartida[71]);
-        escriuNum(numSudoku,R.id.a73,numerosPartida[72]);
-        escriuNum(numSudoku,R.id.a74,numerosPartida[73]);
+        int contadorCelda = 0;
+        for (int countFilas = 0; countFilas < 9; countFilas++) {
+            tr1 = new TableRow(this);
+            for (int countColumnas = 0; countColumnas < 9; countColumnas++) {
+                et1 = new EditText(this);
+                et1.setInputType(InputType.TYPE_CLASS_NUMBER);
+                et1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                et1.setHeight(110);
+                et1.setWidth(110);
+                cellID = "" + countFilas + countColumnas;
 
-        escriuNum(numSudoku,R.id.a75,numerosPartida[74]);
-        escriuNum(numSudoku,R.id.a76,numerosPartida[75]);
-        escriuNum(numSudoku,R.id.a77,numerosPartida[76]);
-        escriuNum(numSudoku,R.id.a78,numerosPartida[77]);
-        escriuNum(numSudoku,R.id.a79,numerosPartida[78]);
+                if (!numerosPartida[contadorCelda].equals("0")) {
+                    et1.setText(numerosPartida[contadorCelda]);
+                    et1.setEnabled(false);
+                } else {
+                    et1.setText("");
+                }
+                contadorCelda++;
 
-        escriuNum(numSudoku,R.id.a80,numerosPartida[79]);
-        escriuNum(numSudoku,R.id.a81,numerosPartida[80]);
+                et1.setId(Integer.parseInt(cellID));
+                //dictID.put(cellID, Integer.parseInt(cellID));
 
-    }
 
-    public void escriuNum(EditText aPos, int id, String num){
-        aPos = (EditText) findViewById(id);
-        if(!num.equals("0")) {
-            aPos.setText(num);
-            aPos.setEnabled(false);
+                if (arr1.contains(cellID)) et1.setBackgroundResource(R.drawable.cell2);
+                else et1.setBackgroundResource(R.drawable.cell);
+
+                tr1.addView(et1);
+            }
+            tl1.addView(tr1);
+
         }
     }
 

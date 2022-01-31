@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <TextView
+        android:id="@+id/temps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="84dp" />
+
+    <TextView
+        android:id="@+id/diff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="84dp" />
+
+    <TextView
+        android:id="@+id/puntuacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="84dp" />
+
+
+
+
+</LinearLayout>
