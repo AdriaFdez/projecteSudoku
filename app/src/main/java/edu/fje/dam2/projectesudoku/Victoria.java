@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,14 +54,14 @@ public class Victoria extends AppCompatActivity {
 
         difTV.setText("Dificultat " + difText);
         tempsTV.setText("Temps " + String.valueOf(duracio) +" segons");
-        ptsTV.setText("PUNTUACIO TOTAL " + puntuacio);
+        ptsTV.setText("PUNTUACIO " + puntuacio +"pts");
 
 
-
-
-
-
-        contentResolver = getContentResolver();
     }
 
+    public void onClickBnv(View view) {
+        Intent intentBnv = new Intent(this, Benvinguda.class);
+        startActivity(intentBnv);
+        contentResolver = getContentResolver();
+    }
 }

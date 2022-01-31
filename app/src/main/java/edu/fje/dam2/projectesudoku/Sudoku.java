@@ -68,6 +68,8 @@ public class Sudoku extends AppCompatActivity {
     TableRow tr1;
     EditText et1;
 
+    ArrayList<String> arr1 = new ArrayList<String>();;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -178,37 +180,46 @@ public class Sudoku extends AppCompatActivity {
     public void onClickCmp(View view) {
         boolean correcte = true;
 
-        for(int i = 0; i<numerosSudoku.length; i++){
-            String numS = numerosSudoku[i];
-            String numP = numerosPartida[i];
-            Log.i(String.valueOf(numS),String.valueOf(numP));
+        String cellID = "";
+        int contadorCelda = 0;
+        for (int countFilas = 0; countFilas < 9; countFilas++) {
+            tr1 = new TableRow(this);
+            for (int countColumnas = 0; countColumnas < 9; countColumnas++) {
+                cellID = "" + countFilas + countColumnas;
+                et1 = (EditText) findViewById(Integer.parseInt(cellID));
+                Log.i("uwu", numerosSudoku[contadorCelda] + " - " + String.valueOf(et1.getText()));
+                //Log.i(numerosSudoku[contadorCelda], String.valueOf(et1.getText()));
 
-            if(!numS.equals(numP)){
-                correcte = false;
-                //posicionsIncorrecte.add(67);
+                if(!(numerosSudoku[contadorCelda].equals(String.valueOf(et1.getText())))){
+                    et1.setBackgroundResource(R.drawable.cell3);
+                    correcte = false;
+                }else{
+                    if (arr1.contains(cellID)) et1.setBackgroundResource(R.drawable.cell2);
+                    else et1.setBackgroundResource(R.drawable.cell);
+                }
+
+                contadorCelda++;
             }
         }
 
-        long temps = SystemClock.elapsedRealtime() - simpleChronometer.getBase();
-        long duracio = temps/1000;
-
-        long tpsSobrant;
-
-        if(temps > tempsMaxim) {    //si trigues mes de 30 min
-            tpsSobrant = 1000;
-        } else {
-            tpsSobrant = tempsMaxim - temps;
-        }
-
-        Intent intentVct = new Intent(this, Victoria.class);
-        intentVct.putExtra("dificultat", diffSelector);
-        intentVct.putExtra("tempsSobrant", tpsSobrant);
-        intentVct.putExtra("duracio", duracio);
-        startActivity(intentVct);
 
         if(correcte) {
-            //SQLITE
+            long temps = SystemClock.elapsedRealtime() - simpleChronometer.getBase();
+            long duracio = temps/1000;
 
+            long tpsSobrant;        //temps que sobra respecte els 30 min maxims
+
+            if(temps > tempsMaxim) {    //si trigues mes de 30 min
+                tpsSobrant = 1000;
+            } else {
+                tpsSobrant = tempsMaxim - temps;
+            }
+
+            Intent intentVct = new Intent(this, Victoria.class);
+            intentVct.putExtra("dificultat", diffSelector);
+            intentVct.putExtra("tempsSobrant", tpsSobrant);
+            intentVct.putExtra("duracio", duracio);
+            startActivity(intentVct);
 
             //CALENDARI
             afegirEvent();          //CREA L'EVENT
@@ -220,7 +231,7 @@ public class Sudoku extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Sudoku incorrecte, continua intentant...",
                     Toast.LENGTH_SHORT).show();
         }
-        }
+    }
 
     /**
      * Mètode que permet afegir un event a un calendari de l'usuari
@@ -267,7 +278,7 @@ public class Sudoku extends AppCompatActivity {
 
         tl1 = findViewById(R.id.tl1);
 
-        ArrayList<String> arr1 = new ArrayList<String>();
+
         arr1.add("03");
         arr1.add("04");
         arr1.add("05");

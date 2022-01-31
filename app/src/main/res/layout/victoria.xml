@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="36sp" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <Space
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="36sp" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <Space
         android:layout_width="match_parent"
@@ -35,13 +37,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:textColor="@color/purple_700"
         android:textSize="36sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="84dp" />
+        android:layout_height="36dp" />
 
-
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickBnv"
+        android:text="Tornar al inici" />
 
 
 </LinearLayout>
