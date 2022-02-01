@@ -44,6 +44,37 @@
         android:layout_width="match_parent"
         android:layout_height="36dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
+
+        <Button
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCalendar"
+            android:text="Guardarl al calendari" />
+
+        <TextView
+            android:id="@+id/calendarTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Partida guardada"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="36dp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"

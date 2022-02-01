@@ -49,11 +49,6 @@ import edu.fje.dam2.projectesudoku.R;
  */
 public class Sudoku extends AppCompatActivity {
 
-    private ContentResolver contentResolver;
-    private Set<String> calendaris = new HashSet<String>();
-    private List<String> events = new ArrayList<String>();
-    private static final int PERMISSIONS_REQUEST_READ_CALENDARS = 100;
-    private static final int PERMISSIONS_REQUEST_WRITE_CALENDARS = 200;
 
     private int diffSelector;
     private List<String> sudokus = Arrays.asList("sudoku1", "sudoku2", "sudoku3");
@@ -77,53 +72,15 @@ public class Sudoku extends AppCompatActivity {
         Intent intent = getIntent();
         diffSelector = intent.getIntExtra("dificultat",0);
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_CALENDAR)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.READ_CALENDAR)) {
-
-
-            } else {
-
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_CALENDAR},
-                        PERMISSIONS_REQUEST_READ_CALENDARS);
-            }
-        }
-
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_CALENDAR)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.WRITE_CALENDAR)) {
-
-
-            } else {
-
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_CALENDAR},
-                        PERMISSIONS_REQUEST_WRITE_CALENDARS);
-            }
-        }
 
         setContentView(R.layout.sudoku);
         escullSudoku(diffSelector);
 
-        simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer); // initiate a chronometer
-
-        simpleChronometer.start();
         dibuixarSudoku();
 
+        simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer); // initiate a chronometer
+        simpleChronometer.start();
 
-
-
-        contentResolver = getContentResolver();
     }
 
     public void escullSudoku(Integer diffSelector){
@@ -215,62 +172,18 @@ public class Sudoku extends AppCompatActivity {
                 tpsSobrant = tempsMaxim - temps;
             }
 
+
+
             Intent intentVct = new Intent(this, Victoria.class);
             intentVct.putExtra("dificultat", diffSelector);
             intentVct.putExtra("tempsSobrant", tpsSobrant);
             intentVct.putExtra("duracio", duracio);
             startActivity(intentVct);
 
-            //CALENDARI
-            afegirEvent();          //CREA L'EVENT
-            obtenirEvents();
-            Log.i("Events ", events.toString());        //OBTENIM I MOSTREM ELS EVENTS
+
         }else{
-            //MOSTRAR POSICIONES INCORRECTAS?
-            //posicionsIncorrectes
             Toast.makeText(getApplicationContext(), "Sudoku incorrecte, continua intentant...",
                     Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    /**
-     * Mètode que permet afegir un event a un calendari de l'usuari
-     */
-    private void afegirEvent() {
-
-        ContentValues esdeveniment = new ContentValues();
-        esdeveniment.put(CalendarContract.Events.CALENDAR_ID, 1); // Tipus de calendari
-        esdeveniment.put(CalendarContract.Events.TITLE, "Partida de sudoku");
-        esdeveniment.put(CalendarContract.Events.DTSTART, Calendar.getInstance().getTimeInMillis());
-        esdeveniment.put(CalendarContract.Events.DTEND, Calendar.getInstance().getTimeInMillis());
-        esdeveniment.put(CalendarContract.Events.EVENT_TIMEZONE, "Europe/Madrid");
-        Uri uri = contentResolver.insert(CalendarContract.Events.CONTENT_URI, esdeveniment);
-
-        // La URI conté el contentProvider i retorna el id del event creat
-        int id = Integer.parseInt(uri.getLastPathSegment());
-        Toast.makeText(getApplicationContext(), "Partida guardada amb codi" + id,
-                Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * Mètode que recupera determinats events d'un calendari.
-     * Filtra pel titol del esdeveniment
-     */
-    private void obtenirEvents() {
-        events.clear();
-        Uri uri = CalendarContract.Events.CONTENT_URI;
-        String seleccio = String.format("(%s = ?)", CalendarContract.Events.TITLE);
-        String[] seleccioArgs = new String[]{"Partida de sudoku"};
-        String[] projeccio = new String[]{
-                CalendarContract.Events._ID,
-                CalendarContract.Events.TITLE,
-                CalendarContract.Events.DTSTART
-        };
-        Cursor cursor = contentResolver.query(uri, projeccio, seleccio, seleccioArgs, null);
-        while (cursor.moveToNext()) {
-            long id = cursor.getLong(0);
-            String titol = cursor.getString(1);
-            events.add(titol);
         }
     }
 
